@@ -24,3 +24,5 @@ Route::post('custom-login', [LoginController::class, 'customLogin'])->name('logi
 Route::get('/logout', [LoginController::class, 'perform'])->name('logout.perform');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('employee', '\App\Http\Controllers\EmployeeController');
+Route::resource('managesaraly', '\App\Http\Controllers\ManagesaralyController');
+

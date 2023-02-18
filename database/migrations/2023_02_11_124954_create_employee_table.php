@@ -21,6 +21,8 @@ class CreateEmployeeTable extends Migration
             $table->text('card')->nullable();
             $table->text('credit')->nullable();
             $table->text('bank')->nullable();
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->timestamps();
         });
     }

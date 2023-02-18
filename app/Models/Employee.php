@@ -18,6 +18,8 @@ class Employee extends Model
         'code',
         'card',
         'credit',
-        'bank'
+        'bank',
+        'start',
+        'end',
     ];
 }
