@@ -32,7 +32,37 @@
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">รหัสพนักงาน</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="code" name="code" placeholder="รหัสพนักงาน" required>
+                        <select class="form-control" id="code" style="width:500px;" name="code"></select>
+                      {{-- <input type="text" class="form-control" id="code" name="code" placeholder="รหัสพนักงาน" required> --}}
+                    </div>
+                 </div>
+
+
+                 <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-12 col-form-label-lg"> วันทำงาน </label>
+                  </div>
+
+
+                 <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">วันทำงานปกติ</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="work_day" name="work_day" placeholder="วันทำงานปกติ" required>
+                    </div>
+                 </div>
+
+
+                 <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">วันทำงานวันหยุด</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="work_ot_day" name="work_ot_day" placeholder="วันทำงานวันหยุด" required>
+                    </div>
+                 </div>
+
+
+                 <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">โอที</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="work_ot_hour" name="work_ot_hour" placeholder="โอที"  required>
                     </div>
                  </div>
 
@@ -105,7 +135,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ขาด</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="missing" name="missing" placeholder="ขาด" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                      <input type="text" class="form-control" id="missing" name="missing" placeholder="ขาด" value="0" required oninput="validateNumberDif(event,'missing');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -113,7 +143,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ลา</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="leave" name="leave" placeholder="ลา" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                      <input type="text" class="form-control" id="leave" name="leave" placeholder="ลา" value="0" required oninput="validateNumberDif(event,'leave');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -121,7 +151,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">มาสาย</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="late" name="late" placeholder="มาสาย" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                      <input type="text" class="form-control" id="late" name="late" placeholder="มาสาย" value="0" required  oninput="validateNumberDif(event,'late');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -129,7 +159,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">เบิกล่วงหน้า</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="advance" name="advance" placeholder="เบิกล่วงหน้า" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                      <input type="text" class="form-control" id="advance" name="advance" placeholder="เบิกล่วงหน้า" value="0" required oninput="validateNumberDif(event,'advance');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -138,7 +168,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ค่าปรับ</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="fine" name="fine" placeholder="ค่าปรับ" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                      <input type="text" class="form-control" id="fine" name="fine" placeholder="ค่าปรับ" value="0" required oninput="validateNumberDif(event,'fine');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -147,26 +177,18 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ประกันสังคม</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="sso" name="sso" placeholder="ประกันสังคม" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                      <input type="text" class="form-control" id="sso" name="sso" placeholder="ประกันสังคม" value="0" required oninput="validateNumberDif(event,'sso');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
 
-
-                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">มาสาย</label>
-                    <div class="col-sm-8">
-                      <input type="text" class="form-control" id="total_deduction" name="total_deduction" placeholder="มาสาย" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
-                    </div>
-                    <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
-                 </div>
 
 
 
                  <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">รวมยอดหัก</label>
                     <div class="col-sm-8">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                      <input type="text" readonly class="form-control-plaintext" id="total_deduction"  name="total_deduction" value="0" required oninput="validateNumberDif(event,'total_deduction');">
                     </div>
 
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
@@ -200,11 +222,40 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
   <script>
 
 $(document).ready(function () {
     $('#example').DataTable();
 });
+
+
+var path = "{{ route('autocomplete') }}";
+
+    $('#code').select2({
+        placeholder: 'Select an user',
+        ajax: {
+          url: path,
+          dataType: 'json',
+          delay: 250,
+          processResults: function (data) {
+            console.log(data);
+            return {
+              results:  $.map(data, function (item) {
+                    return {
+                        text: item.fname + '-' + item.lname,
+                        id: item.id
+                    }
+                })
+            };
+          },
+          cache: true
+        }
+      });
 
 
 
@@ -214,13 +265,18 @@ function validateNumber(e,elementId){
     var textInput = document.getElementById(elementId).value;
     textInput = textInput.replace(/[^0-9]/g, "");
     document.getElementById(elementId).value = textInput;
-
-
-
     Calculate();
-
-
 }
+
+function validateNumberDif(e,elementId){
+    var ss = e.target.selectionStart;
+    var se = e.target.selectionEnd;
+    var textInput = document.getElementById(elementId).value;
+    textInput = textInput.replace(/[^0-9]/g, "");
+    document.getElementById(elementId).value = textInput;
+    Calculatedif();
+}
+
 
 function Calculate(){
 
@@ -252,10 +308,42 @@ function Calculate(){
     if(oil == ''){
         var oil = parseInt(0);
     }
-
-
     var base_month = document.getElementById("base_month").value = parseInt(base_salary) + parseInt(base_salary_position) + parseInt(extra_money) + parseInt(ot) + parseInt(com) + parseInt(oil);
 
+
+
+}
+
+function Calculatedif(){
+
+
+    var missing = document.getElementById("missing").value;
+    var leave = document.getElementById("leave").value;
+    var late = document.getElementById("late").value;
+    var advance = document.getElementById("advance").value;
+    var fine = document.getElementById("fine").value;
+    var sso = document.getElementById("sso").value;
+
+
+    if(missing == ''){
+        var missing = parseInt(0);
+    }
+    if(leave == ''){
+        var leave = parseInt(0);
+    }
+    if(late == ''){
+        var late = parseInt(0);
+    }
+    if(advance == ''){
+        var advance = parseInt(0);
+    }
+    if(fine == ''){
+        var fine = parseInt(0);
+    }
+    if(sso == ''){
+        var sso = parseInt(0);
+    }
+    var total_deduction = document.getElementById("total_deduction").value = parseInt(missing) + parseInt(leave) + parseInt(late) + parseInt(advance) + parseInt(fine) + parseInt(sso);
 
 
 }

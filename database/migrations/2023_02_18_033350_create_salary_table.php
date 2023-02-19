@@ -29,7 +29,7 @@ class CreateSalaryTable extends Migration
             $table->text('advance')->nullable(); //เบิกล่วงหน้า
             $table->text('fine')->nullable(); //ค่าปรับ
             $table->text('sso')->nullable(); //ประกันสังคม
-            $table->text('total_deduction')->nullable(); //ประกันสังคม
+            $table->text('total_deduction')->nullable(); //หักทั้งหมด
             $table->text('work_day')->nullable(); //วัน
             $table->text('work_ot_hour')->nullable(); //OT(ชม.)
             $table->text('work_ot_day')->nullable(); //วัน

@@ -156,4 +156,18 @@ $getedit = Employee::find($id);
         ]);
 
     }
+
+    public function autocomplete(Request $request)
+    {
+        $data = [];
+
+        if($request->filled('q')){
+            $data = Employee::select("fname", "id","lname")
+                        ->where('fname', 'LIKE', '%'. $request->get('q'). '%')
+                        ->get();
+        }
+\Log::info($data);
+        return response()->json($data);
+    }
+
 }
