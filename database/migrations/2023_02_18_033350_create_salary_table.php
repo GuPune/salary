@@ -33,6 +33,8 @@ class CreateSalaryTable extends Migration
             $table->text('work_day')->nullable(); //วัน
             $table->text('work_ot_hour')->nullable(); //OT(ชม.)
             $table->text('work_ot_day')->nullable(); //วัน
+            $table->date('day_slip')->nullable(); //วัน
+            $table->integer('employee_id')->nullable(); //พนักงาน
             $table->timestamps();
         });
     }

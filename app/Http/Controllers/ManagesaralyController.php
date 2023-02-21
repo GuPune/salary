@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Salary;
 use Illuminate\Http\Request;
 
 class ManagesaralyController extends Controller
@@ -15,7 +16,13 @@ class ManagesaralyController extends Controller
     {
         //
 
-        return view('managesalary.index');
+        $salary = Salary::select("employee.id","employee.fname","employee.lname","employee.code","employee.card","salary.day_slip")
+        ->leftJoin('employee', 'employee.id', '=', 'salary.employee_id')
+        ->get();
+
+
+
+        return view('managesalary.index')->with('salary',$salary);
     }
 
     /**
@@ -39,7 +46,42 @@ class ManagesaralyController extends Controller
     {
         //
 
-        dd($request->all());
+
+
+        $this->validate($request, [
+            'code' => 'required',
+            'day_slip' => 'required',
+        ]);
+
+
+
+        $insalary = Salary::create([
+        "employee_id" => $request->code,
+        "work_day" => $request->work_day,
+        "work_ot_day" => $request->work_ot_day,
+        "work_ot_hour" => $request->work_ot_hour,
+        "base_salary" => $request->base_salary,
+        "base_salary_position" => $request->base_salary_position,
+        "extra_money" => $request->extra_money,
+        "ot" => $request->ot,
+        "com" => $request->com,
+        "oil" => $request->oil,
+        "base_month" => $request->base_month,
+        "missing" => $request->missing,
+        "leave" => $request->leave,
+        "late" => $request->late,
+        "advance" => $request->advance,
+        "fine" => $request->fine,
+        "sso" => $request->sso,
+        "total_deduction" => $request->total_deduction,
+        "total_money" => $request->total_money,
+        "day_slip" => $request->day_slip,
+
+    ]);
+
+
+    return redirect()->route('managesaraly.index')
+    ->with('success','Salary created successfully');
     }
 
     /**

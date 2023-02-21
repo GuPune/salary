@@ -34,21 +34,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach($employee as $k => $items)
+                        @foreach($salary as $k => $salarys)
                         <tr>
-                            <td>{{$items->code}}</td>
-                            <td>{{$items->fname}} {{$items->lname}}</td>
-                            <td>{{$items->card}}</td>
-                            <td>{{$items->credit}}</td>
-                            <td>{{$items->bank}}</td>
+                            <td>{{$salarys->code}}</td>
+                            <td>{{$salarys->fname}} {{$salarys->lname}}</td>
+                            <td>{{$salarys->card}}</td>
+                            <td>{{$salarys->day_slip}}</td>
+
                             <td>
-                                <a href="{{ url('/managesaraly/' . $items->id . '/edit') }}">
+                                <a href="{{ url('/managesaraly/' . $salarys->id . '/edit') }}">
                                     <button type="button" class="btn btn-warning">แก้ไข</button>
                                 </a>
-                                <button type="button" class="btn btn-danger btn-delete" data-id="{{ $items->id}}" id="dele">ลบ</button>
+                                <button type="button" class="btn btn-danger btn-delete" data-id="{{ $salarys->id}}" id="dele">ลบ</button>
                             </td>
                         </tr>
-                        @endforeach --}}
+                        @endforeach
 
                     </tbody>
 

@@ -204,6 +204,17 @@
                  </div>
 
 
+                 <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">วันที่ออกสลิป</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" format-value="yyyy-MM-ddTHH:mm" class="form-control datetime" id="day_slip" name="day_slip"  required>
+                    </div>
+
+                 </div>
+
+
+
 
 
 
@@ -225,7 +236,23 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- datepicker styles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+
 
   <script>
 
@@ -233,6 +260,18 @@ $(document).ready(function () {
     $('#example').DataTable();
 });
 
+
+$('.datetime').datetimepicker({
+    format: 'YYYY-MM-DD',
+    locale: 'en',
+    sideBySide: true,
+    icons: {
+      up: 'fas fa-chevron-up',
+      down: 'fas fa-chevron-down',
+      previous: 'fas fa-chevron-left',
+      next: 'fas fa-chevron-right'
+    }
+  })
 
 var path = "{{ route('autocomplete') }}";
 
@@ -266,6 +305,7 @@ function validateNumber(e,elementId){
     textInput = textInput.replace(/[^0-9]/g, "");
     document.getElementById(elementId).value = textInput;
     Calculate();
+    Calculatetotal();
 }
 
 function validateNumberDif(e,elementId){
@@ -275,8 +315,20 @@ function validateNumberDif(e,elementId){
     textInput = textInput.replace(/[^0-9]/g, "");
     document.getElementById(elementId).value = textInput;
     Calculatedif();
+    Calculatetotal();
 }
 
+function Calculatetotal(){
+
+
+    var base_month = document.getElementById("base_month").value
+    var total_deduction = document.getElementById("total_deduction").value
+
+
+
+    var total_money = document.getElementById("total_money").value = parseInt(base_month) - parseInt(total_deduction)
+
+}
 
 function Calculate(){
 
