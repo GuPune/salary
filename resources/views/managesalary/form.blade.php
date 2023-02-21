@@ -22,13 +22,7 @@
                   <label for="inputAddress">รหัสพนักงาน</label>
                   <input type="text" class="form-control" id="code" name="code" placeholder="รหัสพนักงาน" required>
                 </div> --}}
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-8">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-                    </div>
-                    <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
-                  </div>
+
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">รหัสพนักงาน</label>
                     <div class="col-sm-10">
