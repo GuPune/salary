@@ -37,7 +37,9 @@
                             <td>{{$salarys->day_slip}}</td>
 
                             <td>
-                                <button type="button" class="btn btn-danger btn-delete">PDF</button>
+                                <a class="btn btn-primary" href="{{ url('/generate-pdf/' . $salarys->id) }}">Export to PDF</a>
+
+
                             </td>
                         </tr>
                         @endforeach

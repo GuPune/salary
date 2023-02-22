@@ -27,3 +27,5 @@ Route::resource('employee', '\App\Http\Controllers\EmployeeController');
 Route::resource('managesalary', '\App\Http\Controllers\managesalaryController');
 Route::resource('salary', '\App\Http\Controllers\SalaryController');
 Route::get('/autocomplete', [App\Http\Controllers\EmployeeController::class, 'autocomplete'])->name('autocomplete');
+Route::get('generate-pdf/{id}', [\App\Http\Controllers\PDFController::class, 'generatePDFData']);
+

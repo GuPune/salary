@@ -1,0 +1,24 @@
+{
+    "thsarabunnew": {
+        "normal": "thsarabunnew_normal_fc38bc660e0699e1fa7a40f134c25a66",
+        "bold": "C:\\laragon\\www\\salary\\storage\\fonts\/thsarabunnew_bold_bd0120e87fa34a18424db85780c146d1",
+        "italic": "C:\\laragon\\www\\salary\\storage\\fonts\/thsarabunnew_italic_c66c9d6d04647c051232186648cc415e",
+        "bold_italic": "C:\\laragon\\www\\salary\\storage\\fonts\/thsarabunnew_bold_italic_d9688148a5d35b8430dda630e7df1c23"
+    },
+    "material icons": {
+        "normal": "material_icons_normal_f01cb4c400c9d48c2dcb628cede8dccb"
+    },
+    "roboto": {
+        "italic": "roboto_italic_667606b4aadec75ba303714bfd3d7de6",
+        "bold_italic": "roboto_bold_italic_b67ad0e841cce5ff0a1ad7bf11cb5a76",
+        "100": "roboto_100_609899a681714d97de067add31411c5e",
+        "300": "roboto_300_080df75d218a8ebe8b75f6ba7182d343",
+        "normal": "roboto_normal_ad149bced3f7c2e0ff246c3940f6b965",
+        "500": "roboto_500_c0c6c1120627790ec9badfa2417cf776",
+        "bold": "roboto_bold_1e8a2cb64c7c487395e1622e750f0d0e",
+        "900": "roboto_900_69a7dba6dd17dc651f75d25bb5f8bca9"
+    },
+    "sukhumvitset": {
+        "normal": "sukhumvitset_normal_137ef3e8f333c47bd2cbc11d1531d9ed"
+    }
+}
