@@ -16,12 +16,12 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">จัดการเงินเดือน <span class="caret"></span></a>
                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="/managesaraly">จัดการเงินเดือน</a></li>
+                    <li><a href="/managesalary">จัดการเงินเดือน</a></li>
                     <li><a href="/report">รายงานสรุป</a></li>
                  </ul>
              </li>
 
-            <li><a class="nav-link scrollto " href="/saraly">เงินเดือน</a></li>
+            <li><a class="nav-link scrollto " href="/salary">เงินเดือน</a></li>
             <li><a class="nav-link scrollto" href="/employee">คู่มือการใช้งาน</a></li>
             <li><a class="nav-link scrollto" href="/logout">ออกจากระบบ</a></li>
         </ul>
@@ -30,7 +30,7 @@
 
         <ul>
             <li><a class="nav-link scrollto active" href="/">หน้าแรก</a></li>
-            <li><a class="nav-link scrollto " href="/saraly">เงินเดือน</a></li>
+            <li><a class="nav-link scrollto " href="/salary">เงินเดือน</a></li>
             <li><a class="nav-link scrollto" href="/logout">ออกจากระบบ</a></li>
         </ul>
 

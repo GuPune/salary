@@ -13,14 +13,9 @@
     @endif
 
         <div class="card">
-            <div class="card-header">จัดการเงินเดือน</div>
+            <div class="card-header">เงินเดือน</div>
 
-            <div class="card">
-                <a href="{{ url('/managesalary/create') }}">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">+ เพิ่มข้อมูลเงินเดือน</button>
-                </a>
 
-              </div>
           <div class="card-body">
             <div>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -42,13 +37,11 @@
                             <td>{{$salarys->day_slip}}</td>
 
                             <td>
-                                <a href="{{ url('/managesalary/' . $salarys->id . '/edit') }}">
-                                    <button type="button" class="btn btn-warning">แก้ไข</button>
-                                </a>
-                                <button type="button" class="btn btn-danger btn-delete" data-id="{{ $salarys->id }}" id="dele">ลบ</button>
+                                <button type="button" class="btn btn-danger btn-delete">PDF</button>
                             </td>
                         </tr>
                         @endforeach
+
 
                     </tbody>
 

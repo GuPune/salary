@@ -6,7 +6,7 @@ use App\Models\Employee;
 use App\Models\Salary;
 use Illuminate\Http\Request;
 
-class ManagesaralyController extends Controller
+class managesalaryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -81,7 +81,7 @@ class ManagesaralyController extends Controller
     ]);
 
 
-    return redirect()->route('managesaraly.index')
+    return redirect()->route('managesalary.index')
     ->with('success','Salary created successfully');
     }
 
@@ -148,7 +148,7 @@ class ManagesaralyController extends Controller
 
 
 
-        return redirect()->route('managesaraly.index')
+        return redirect()->route('managesalary.index')
         ->with('success','Salary Update successfully');
     }
 
