@@ -57,6 +57,9 @@ class EmployeeController extends Controller
             "card" => "required|numeric|min:13|unique:employee",
         ]);
 
+
+
+
         $shell_category = Employee::create([
             "fname" =>  $request->fname,
             "lname" =>  $request->lname,
