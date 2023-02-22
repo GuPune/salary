@@ -45,7 +45,7 @@
                                 <a href="{{ url('/managesaraly/' . $salarys->id . '/edit') }}">
                                     <button type="button" class="btn btn-warning">แก้ไข</button>
                                 </a>
-                                <button type="button" class="btn btn-danger btn-delete" data-id="{{ $salarys->id}}" id="dele">ลบ</button>
+                                <button type="button" class="btn btn-danger btn-delete" data-id="{{ $salarys->id }}" id="dele">ลบ</button>
                             </td>
                         </tr>
                         @endforeach
@@ -108,7 +108,7 @@ swal({
                 dataType: 'json',
                 type:'DELETE',
                 data:{id:id,'_token': token},
-                url: '/employee/' + id,
+                url: '/managesaraly/' + id,
 
                 success: function(datas){
                     location.reload();

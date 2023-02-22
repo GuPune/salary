@@ -16,28 +16,20 @@
             <div class="card-header">แก้ไขข้อมูลเงินเดือน</div>
 
           <div class="card-body">
-            <form method="POST"  action="{{ route('managesalary.update',$res->id) }}" >
+            <form method="POST"  action="{{ route('managesaraly.update',$salary->id) }}" >
                 {{ method_field('PUT') }}
                     {{ csrf_field() }}
                 {{-- <div class="form-group">
                   <label for="inputAddress">รหัสพนักงาน</label>
                   <input type="text" class="form-control" id="code" name="code" placeholder="รหัสพนักงาน" required>
                 </div> --}}
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-8">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-                    </div>
-                    <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
-                  </div>
+
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">รหัสพนักงาน</label>
                     <div class="col-sm-10">
-                        <select class="form-control" id="code" style="width:500px;" name="code"></select>
-                      {{-- <input type="text" class="form-control" id="code" name="code" placeholder="รหัสพนักงาน" required> --}}
+                        <label for="staticEmail" class="col-sm-12 col-form-label-lg"> {{$employ->code}}  </label>
                     </div>
                  </div>
-
 
                  <div class="form-group row">
                     <label for="staticEmail" class="col-sm-12 col-form-label-lg"> วันทำงาน </label>
@@ -47,7 +39,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">วันทำงานปกติ</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="work_day" name="work_day" placeholder="วันทำงานปกติ" required>
+                      <input type="text" class="form-control" id="work_day" name="work_day" placeholder="วันทำงานปกติ" required value="{{$salary->work_day}}">
                     </div>
                  </div>
 
@@ -55,7 +47,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">วันทำงานวันหยุด</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="work_ot_day" name="work_ot_day" placeholder="วันทำงานวันหยุด" required>
+                      <input type="text" class="form-control" id="work_ot_day" name="work_ot_day" placeholder="วันทำงานวันหยุด" required value="{{$salary->work_ot_day}}">
                     </div>
                  </div>
 
@@ -63,7 +55,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">โอที</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="work_ot_hour" name="work_ot_hour" placeholder="โอที"  required>
+                      <input type="text" class="form-control" id="work_ot_hour" name="work_ot_hour" placeholder="โอที"  required value="{{$salary->work_ot_hour}}">
                     </div>
                  </div>
 
@@ -71,7 +63,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ฐานเงินเดือน</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="base_salary" name="base_salary" placeholder="ฐานเงินเดือน" value="0" required oninput="validateNumber(event,'base_salary');" >
+                      <input type="text" class="form-control" id="base_salary" name="base_salary" placeholder="ฐานเงินเดือน" value="{{$salary->base_salary}}" required oninput="validateNumber(event,'base_salary');" >
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -79,7 +71,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ค่าตำแหน่ง</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="base_salary_position" name="base_salary_position" placeholder="ค่าตำแหน่ง" value="0" required oninput="validateNumber(event,'base_salary_position');">
+                      <input type="text" class="form-control" id="base_salary_position" name="base_salary_position" placeholder="ค่าตำแหน่ง" value="{{$salary->base_salary_position}}" required oninput="validateNumber(event,'base_salary_position');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -87,7 +79,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">เงินพิเศษ</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="extra_money" name="extra_money" placeholder="เงินพิเศษ" value="0" required  oninput="validateNumber(event,'extra_money');">
+                      <input type="text" class="form-control" id="extra_money" name="extra_money" placeholder="เงินพิเศษ" value="{{$salary->extra_money}}" required  oninput="validateNumber(event,'extra_money');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -96,7 +88,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ทำงานวันหยุด</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="ot" name="ot" placeholder="ทำงานวันหยุด" value="0" required oninput="validateNumber(event,'ot');">
+                      <input type="text" class="form-control" id="ot" name="ot" placeholder="ทำงานวันหยุด" value="{{$salary->ot}}" required oninput="validateNumber(event,'ot');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -104,7 +96,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ค่าคอม</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="com" name="com" placeholder="ค่าคอม" value="0" required oninput="validateNumber(event,'com');">
+                      <input type="text" class="form-control" id="com" name="com" placeholder="ค่าคอม" value="{{$salary->com}}" required oninput="validateNumber(event,'com');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -112,7 +104,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ค่าน้ำมัน</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="oil" name="oil" placeholder="ค่าน้ำมัน" value="0" required oninput="validateNumber(event,'oil');">
+                      <input type="text" class="form-control" id="oil" name="oil" placeholder="ค่าน้ำมัน"  value="{{$salary->oil}}" required oninput="validateNumber(event,'oil');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -120,7 +112,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">รวมเงินรับ</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="base_month" name="base_month" placeholder="รวมเงินรับ" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');" readonly>
+                      <input type="text" class="form-control" id="base_month" name="base_month" placeholder="รวมเงินรับ" value="{{$salary->base_month}}" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');" readonly>
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -136,7 +128,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ขาด</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="missing" name="missing" placeholder="ขาด" value="0" required oninput="validateNumberDif(event,'missing');">
+                      <input type="text" class="form-control" id="missing" name="missing" placeholder="ขาด" value="{{$salary->missing}}" required oninput="validateNumberDif(event,'missing');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -144,7 +136,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ลา</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="leave" name="leave" placeholder="ลา" value="0" required oninput="validateNumberDif(event,'leave');">
+                      <input type="text" class="form-control" id="leave" name="leave" placeholder="ลา" value="{{$salary->leave}}" required oninput="validateNumberDif(event,'leave');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -152,7 +144,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">มาสาย</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="late" name="late" placeholder="มาสาย" value="0" required  oninput="validateNumberDif(event,'late');">
+                      <input type="text" class="form-control" id="late" name="late" placeholder="มาสาย" value="{{$salary->late}}" required  oninput="validateNumberDif(event,'late');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -160,7 +152,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">เบิกล่วงหน้า</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="advance" name="advance" placeholder="เบิกล่วงหน้า" value="0" required oninput="validateNumberDif(event,'advance');">
+                      <input type="text" class="form-control" id="advance" name="advance" placeholder="เบิกล่วงหน้า"  value="{{$salary->advance}}" required oninput="validateNumberDif(event,'advance');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -169,7 +161,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ค่าปรับ</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="fine" name="fine" placeholder="ค่าปรับ" value="0" required oninput="validateNumberDif(event,'fine');">
+                      <input type="text" class="form-control" id="fine" name="fine" placeholder="ค่าปรับ"  value="{{$salary->fine}}" required oninput="validateNumberDif(event,'fine');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -178,7 +170,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ประกันสังคม</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="sso" name="sso" placeholder="ประกันสังคม" value="0" required oninput="validateNumberDif(event,'sso');">
+                      <input type="text" class="form-control" id="sso" name="sso" placeholder="ประกันสังคม" value="{{$salary->sso}}" required oninput="validateNumberDif(event,'sso');">
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -189,7 +181,7 @@
                  <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">รวมยอดหัก</label>
                     <div class="col-sm-8">
-                      <input type="text" readonly class="form-control-plaintext" id="total_deduction"  name="total_deduction" value="0" required oninput="validateNumberDif(event,'total_deduction');">
+                      <input type="text" readonly class="form-control-plaintext" id="total_deduction"  name="total_deduction" value="{{$salary->total_deduction}}" required oninput="validateNumberDif(event,'total_deduction');">
                     </div>
 
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
@@ -199,10 +191,25 @@
                   <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">เงินได้สุทธิ</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="total_money" name="total_money" placeholder="เงินได้สุทธิ" value="0" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');" readonly>
+                      <input type="text" class="form-control" id="total_money" name="total_money" placeholder="เงินได้สุทธิ" value="{{$salary->total_money}}" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');" readonly>
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
+
+
+
+
+
+                 <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">วันที่ออกสลิป</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" format-value="yyyy-MM-ddTHH:mm" class="form-control datetime" id="day_slip" name="day_slip"  required value="{{$salary->day_slip}}">
+                    </div>
+
+                 </div>
+
+
 
 
 
@@ -228,12 +235,28 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
   <script>
 
 $(document).ready(function () {
     $('#example').DataTable();
 });
 
+
+$('.datetime').datetimepicker({
+    format: 'YYYY-MM-DD',
+    locale: 'en',
+    sideBySide: true,
+    icons: {
+      up: 'fas fa-chevron-up',
+      down: 'fas fa-chevron-down',
+      previous: 'fas fa-chevron-left',
+      next: 'fas fa-chevron-right'
+    }
+  })
 
 var path = "{{ route('autocomplete') }}";
 
@@ -253,10 +276,12 @@ var path = "{{ route('autocomplete') }}";
                     }
                 })
             };
+
           },
           cache: true
         }
       });
+
 
 
 
