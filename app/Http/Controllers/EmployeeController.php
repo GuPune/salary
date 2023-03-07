@@ -165,8 +165,8 @@ $getedit = Employee::find($id);
         $data = [];
 
         if($request->filled('q')){
-            $data = Employee::select("fname", "id","lname")
-                        ->where('fname', 'LIKE', '%'. $request->get('q'). '%')
+            $data = Employee::select("fname", "id","lname","code")
+                        ->where('code', 'LIKE', '%'. $request->get('q'). '%')
                         ->get();
         }
 \Log::info($data);
