@@ -2,9 +2,21 @@
 
 @section('content')
 
-<section id="contact" class="contact">
+<div class="row">
 
-  </section><!-- End Contact Section -->
+</div>
+<div class="row">
+
+</div>
+<br>
+<br>
+<br>
+  <div class="card text-center">
+
+    <div class="card-body" style="font-size: 3em">
+        ห้างหุ้นส่วนจำกัด ขอนแก่นโลจิสติกส์
+      </div>
+  </div>
 
 @endsection
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
