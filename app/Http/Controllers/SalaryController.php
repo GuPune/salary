@@ -17,6 +17,11 @@ class SalaryController extends Controller
     public function index()
     {
 
+        $user = Auth::user()->is_admin;
+        if($user == '1'){
+            return redirect()->back()->withErrors(['error' => 'Oppes! You have entered  permissions']);
+
+        }
         $card = Auth::user()->card;
 $getempo = Employee::where('card',$card)->first();
 
