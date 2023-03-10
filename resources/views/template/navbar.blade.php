@@ -18,11 +18,12 @@
                  <ul class="dropdown-menu" role="menu">
                     <li><a href="/managesalary">จัดการเงินเดือน</a></li>
                     <li><a href="/report">รายงานสรุป</a></li>
+                    <li><a href="/person">รายงานบุคคล</a></li>
                  </ul>
              </li>
 
             <li><a class="nav-link scrollto " href="/salary">เงินเดือน</a></li>
-            <li><a class="nav-link scrollto" href="/employee">คู่มือการใช้งาน</a></li>
+            {{-- <li><a class="nav-link scrollto" href="/employee">คู่มือการใช้งาน</a></li> --}}
             <li><a class="nav-link scrollto" href="/logout">ออกจากระบบ</a></li>
         </ul>
 
