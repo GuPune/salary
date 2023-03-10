@@ -16,7 +16,7 @@
             <div class="card-header">เพิ่มข้อมูลเงินเดือน</div>
 
           <div class="card-body">
-            <form method="POST"  action="{{ route('managesalary.store') }}" >
+            <form method="POST"  action="{{ route('managesalary.store') }}">
               {{ csrf_field() }}
                 {{-- <div class="form-group">
                   <label for="inputAddress">รหัสพนักงาน</label>

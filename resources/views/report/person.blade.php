@@ -17,7 +17,7 @@
     <div class="card">
 
       <div class="card-body">
-        <form method="GET"  action="{{ route('report') }}">
+        <form method="GET"  action="{{ route('person') }}">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputState">เดือน</label>
@@ -54,28 +54,32 @@
     </div>
 
         <div class="card">
-            <div class="card-header">รายงานรายเดือน</div>
+            <div class="card-header">รายงานบุคคล</div>
           <div class="card-body">
             <div>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
+                            <th>ชื่อ</th>
                             <th>เงินเดือนสุทธิ</th>
                             <th>เงินเดือน</th>
                             <th>รายการหัก</th>
                             <th>จ่ายจริง</th>
-                            <th>จำนวนรายการ</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>{{$base_month}}</td>
-                            <td>{{$sumpay}}</td>
-                            <td>{{$sumdis}}</td>
-                            <td>{{$sumtotal}}</td>
-                            <td>{{$count}}</td>
-                        </tr>
 
+                        @foreach($item as $k => $datas)
+                        <tr>
+
+                            <td>{{$datas->fname}} {{$datas->lname}}</td>
+                            <td>{{$datas->base_month}}</td>
+                            <td>{{$datas->base_salary}}</td>
+                            <td>{{$datas->total_deduction}}</td>
+                            <td>{{$datas->total_money}}</td>
+                        </tr>
+                        @endforeach
 
 
 
