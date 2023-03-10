@@ -148,363 +148,206 @@
           </tr>
           <tr>
             <th>
-              ชื่อ
+              รหัสพนักงาน
   </th>
             <td>
-              Test Test
+                2409900020099
   </td>
             <td>
 
             </td>
             <th>
-              Bank Code
+                ชื่อ-นามสกุล
   </th>
             <td>
-              ABC123
+             ปปปปปปปปปปปปป
   </td>
             <td>
 
             </td>
-            <th>
-              Branch
-  </th>
-            <td>
-              ABC123
-  </td>
+
+
           </tr>
 
 
+          <tr>
+            <th>
+                บัตร ปชช
+  </th>
+            <td>
+                2409900020099
+  </td>
+            <td>
 
+            </td>
+            <th>
+                ธนาคาร
+            </th>
+            <td>
+                กสิกร
+             </td>
+            <td>
 
+            </td>
+          </tr>
           <tr class="myBackground">
             <th colspan="2">
-              Payments
+              รายได้
   </th>
             <th >
-              Particular
+
   </th>
             <th class="table-border-right">
-              Amount (Rs.)
+             จำนวนเงิน
   </th>
             <th colspan="2">
-              Deductions
+              รายการหัก
   </th>
             <th >
-              Particular
+
   </th>
             <th >
-              Amount (Rs.)
+              จำนวนเงิน
   </th>
           </tr>
           <tr>
             <th colspan="2">
-              Basic Salary
+             เงินเดือน
   </th>
             <td></td>
             <td class="myAlign">
-              4935.00
+               {{$base_salary}}
   </td>
             <th colspan="2" >
-              Provident Fund
+              ประกันสังคม
   </th >
             <td></td>
 
             <td class="myAlign">
-              00.00
+              {{$sso}}
   </td>
           </tr >
           <tr>
             <th colspan="2">
-              Fixed Dearness Allowance
+              ค่าตำแหน่ง
   </th>
             <td></td>
 
             <td class="myAlign">
-              00.00
+                {{$base_salary_position}}
   </td>
             <th colspan="2" >
-              LIC
+              ขาด
   </th >
             <td></td>
 
             <td class="myAlign">
-              00.00
+                {{$missing}}
   </td>
           </tr >
           <tr>
             <th colspan="2">
-              Variable Dearness Allowance
+              เงินพิเศษ
   </th>
             <td></td>
 
             <td class="myAlign">
-              00.00
+                {{$extra_money}}
   </td>
             <th colspan="2" >
-              Loan
+              ลา
   </th >
             <td></td>
 
             <td class="myAlign">
-              00.00
+                {{$leave}}
   </td>
           </tr >
           <tr>
             <th colspan="2">
-              House Rent Allowance
+              ทำงานวันหยุด
   </th>
             <td></td>
             <td class="myAlign">
-              00.00
+                {{$ot}}
   </td>
             <th colspan="2" >
-              Professional Tax
+              มาสาย
   </th >
             <td></td>
             <td class="myAlign">
-              00.00
+                {{$late}}
   </td>
           </tr >
           <tr>
             <th colspan="2">
-              Graduation Allowance
+              ค่าคอม
   </th>
             <td></td>
 
             <td class="myAlign">
-              00.00
+                {{$com}}
   </td>
             <th colspan="2" >
-              Security Deposite(SD)
+              เบิกล่วงหน้า
   </th >
             <td></td>
 
             <td class="myAlign">
-              00.00
+                {{$advance}}
   </td>
           </tr >
           <tr>
             <th colspan="2">
-              Conveyance Allowance
+              ค่าน้ำมัน
   </th> <td></td>
             <td class="myAlign">
-              00.00
+                {{$oil}}
   </td>
             <th colspan="2" >
-              Staff Benefit(SB)
+              ค่าปรับ
   </th >
             <td></td>
             <td class="myAlign">
-              00.00
+                {{$fine}}
   </td>
           </tr >
-          <tr>
-            <th colspan="2">
-              Post Allowance
-  </th>
-            <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-            <th colspan="2" >
-              Labour Welfare Fund
-  </th >
-            <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-          </tr >
-          <tr>
-            <th colspan="2">
-              Special Allowance
-  </th>
-            <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-            <th colspan="2" >
-              NSC
-  </th >
-            <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-          </tr >
-          <tr>
-            <td colspan="4" class="table-border-right"></td>
-            <th colspan="2" >
-              Union Thanco Officer(UTO)
-  </th >
-            <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-          </tr >
-          <tr>
-            <td colspan="4" class="table-border-right"></td>
-            <th colspan="2" >
-              Advance
-  </th >
-            <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-          </tr >
-          <tr>
-            <td colspan="4" class="table-border-right"></td>
-            <th colspan="2" >
-              Income Tax
-  </th > <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-          </tr >
+
+
+
+
+
           <tr class="myBackground">
             <th colspan="3">
-              Total Payments
+            รายได้
   </th>
             <td class="myAlign">
-              10000
+              {{$base_month}}
   </td>
             <th colspan="3" >
-              Total Deductions
+            รายการหัก
   </th >
             <td class="myAlign">
-              1000
+              {{$total_deduction}}
   </td>
           </tr >
-          <tr height="40px">
-            <th colspan="2">
-              Projection for Financial Year:
-            </th>
-            <th>
-            </th>
-            <td class="table-border-right">
-            </td>
-            <th colspan="2" class="table-border-bottom" >
-              Net Salary
-            </th >
-            <td >
-            </td>
-            <td >
-              XXXXXXXXXX
-            </td>
-          </tr >
-          <tr>
-            <td colspan="2">
-              Gross Salary
-            </td> <td></td>
-            <td class="myAlign">
-              00.00
-  </td><td colspan="4"></td>
-          </tr >
-          <tr>
-            <td colspan="2">
-              Aggr. Dedu - P.Tax & Std Ded
-  </td> <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-            <th colspan="2" >
-              Cumulative
-  </th >
-            <td colspan="2"></td>
-          </tr >
-          <tr>
-            <td colspan="2">
-              Gross Total Income
-  </td> <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-            <td colspan="2" >
-              Empl PF Contribution
-  </td > <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-          </tr >
-          <tr>
-            <td colspan="2">
-              Aggr of Chapter "PF"
-  </td> <td></td>
-            <td class="myAlign">
-              00.00
-  </td><td colspan="4"></td>
-          </tr >
-          <tr>
-            <td colspan="2">
-              Total Income
-  </td> <td></td>
-            <td class="myAlign">
-              00.00
-  </td>
-            <td colspan="4"></td>
-          </tr >
+
+
           <tbody class="border-center">
+
+
+
             <tr>
-              <th>
-                Attend/ Absence
-  </th>
-              <th>
-                Days in Month
-  </th>
-              <th>
-                Days Paid
-  </th>
-              <th>
-                Days Not Paid
-  </th>
-              <th>
-                Leave Position
-  </th>
-              <th>
-                Privilege Leave
-  </th>
-              <th>
-                Sick Leave
-  </th>
-              <th>
-                Casual Leave
-  </th>
-            </tr>
-            <tr>
-              <td ></td>
-              <td ></td>
-              <td ></td>
-              <td ></td>
-              <td>Yrly Open Balance</td>
-              <td>0.0</td> <td>0.0</td>
-              <td>0.0</td>
-            </tr >
-            <tr>
-              <th >Current Month</th>
-              <td >31.0</td>
-              <td >31.0</td>
-              <td >31.0</td>
-              <td>Availed</td>
-              <td>0.0</td> <td>0.0</td>
-              <td>0.0</td>
-            </tr >
+                <td colspan="4"></td>
+                <td> ---------- วันที่จ่าย ---------- </td>
+                <td colspan="4">{{$day_slip}}</td>
+
+              </tr >
             <tr>
               <td colspan="4"></td>
-              <td>Closing Balance</td>
-              <td>0.0</td> <td>0.0</td>
-              <td>0.0</td>
-            </tr >
-            <tr>
-              <td colspan="4"> &nbsp; </td>
-              <td > </td>
-              <td > </td>
-              <td > </td>
-              <td > </td>
-            </tr >
-            <tr>
-              <td colspan="4"></td>
-              <td>Company Pool Leave Balance</td>
-              <td>1500</td>
-              <td ></td>
-              <td ></td>
+              <td > ---------- รายได้สุทธิ ---------- </td>
+              <td colspan="4">{{$total_money}}.00</td>
+
             </tr >
           </tbody>
         </table >

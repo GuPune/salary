@@ -169,7 +169,7 @@ $getedit = Employee::find($id);
                         ->where('code', 'LIKE', '%'. $request->get('q'). '%')
                         ->get();
         }
-\Log::info($data);
+
         return response()->json($data);
     }
 

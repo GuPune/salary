@@ -23,16 +23,27 @@ class SalaryController extends Controller
 
         }
         $card = Auth::user()->card;
+
 $getempo = Employee::where('card',$card)->first();
 
 
         $salary = Salary::select("salary.id","employee.fname","employee.lname","employee.code","employee.card","salary.day_slip")
-        ->leftJoin('employee', 'employee.id', '=', 'salary.employee_id')
-        ->where('employee.id',$getempo->id)
-        ->get();
+        ->leftJoin('employee', 'employee.id', '=', 'salary.employee_id');
 
 
-        return view('emsalary.index')->with('salary',$salary);
+        if($getempo){
+            $salary->where('employee.id',$getempo->id);
+        }else{
+            $salary->where('employee.id',0);
+        }
+       $data = $salary->get();
+
+
+
+
+
+
+        return view('emsalary.index')->with('salary',$data);
     }
 
     /**
