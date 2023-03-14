@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\Salary;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class managesalaryController extends Controller
 {
@@ -47,16 +48,28 @@ class managesalaryController extends Controller
     {
         //
 
-
-
         $this->validate($request, [
             'code' => 'required',
             'day_slip' => 'required',
         ]);
 
+/////เช็ค user และ เดือน////
+// $request->day_slip
 
 
-        $insalary = Salary::create([
+$month = Carbon::createFromFormat('Y-m-d', $request->day_slip)->format('m');
+$year = Carbon::createFromFormat('Y-m-d', $request->day_slip)->format('Y');
+
+
+
+
+///check /// empoyee id
+$checkm = Salary::where('employee_id',$request->code)->where('m',$month)->where('y',$year)->first();
+
+if($checkm){
+    return redirect()->back()->withErrors(['msg' => 'Slip Month Same']);
+}else {
+            $insalary = Salary::create([
         "employee_id" => $request->code,
         "work_day" => $request->work_day,
         "work_ot_day" => $request->work_ot_day,
@@ -77,13 +90,20 @@ class managesalaryController extends Controller
         "total_deduction" => $request->total_deduction,
         "total_money" => $request->total_money,
         "day_slip" => $request->day_slip,
-
+        "m" => $month,
+        "y" => $year,
     ]);
-
 
     return redirect()->route('managesalary.index')
     ->with('success','Salary created successfully');
     }
+
+}
+
+
+
+
+
 
     /**
      * Display the specified resource.

@@ -33,7 +33,9 @@ class Salary extends Model
         'work_ot_day',
         'day_slip',
         'employee_id',
-        'day_slip_confirm'
+        'day_slip_confirm',
+        'm',
+        'y'
     ];
 
 

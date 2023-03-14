@@ -204,7 +204,7 @@
                     <label for="inputPassword" class="col-sm-2 col-form-label">วันที่ออกสลิป</label>
 
                     <div class="col-sm-8">
-                        <input type="text" format-value="yyyy-MM-ddTHH:mm" class="form-control datetime" id="day_slip" name="day_slip"  required value="{{$salary->day_slip}}">
+                        <input type="text" format-value="yyyy-MM-ddTHH:mm" class="form-control datetime" id="day_slip" name="day_slip"  required value="{{$salary->day_slip}}" readonly>
                     </div>
 
                  </div>
