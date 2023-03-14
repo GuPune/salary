@@ -64,7 +64,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ฐานเงินเดือน</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="base_salary" name="base_salary" placeholder="ฐานเงินเดือน" value="0" required oninput="validateNumber(event,'base_salary');" >
+                      <input type="text" class="form-control" id="base_salary" name="base_salary" placeholder="ฐานเงินเดือน" value="0" required oninput="validateNumber(event,'base_salary');" readonly>
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -72,7 +72,7 @@
                  <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">ค่าตำแหน่ง</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="base_salary_position" name="base_salary_position" placeholder="ค่าตำแหน่ง" value="0" required oninput="validateNumber(event,'base_salary_position');">
+                      <input type="text" class="form-control" id="base_salary_position" name="base_salary_position" placeholder="ค่าตำแหน่ง" value="0" required oninput="validateNumber(event,'base_salary_position');" readonly>
                     </div>
                     <label for="staticEmail" class="col-sm-2 col-form-label">บาท</label>
                  </div>
@@ -269,6 +269,8 @@ $('.datetime').datetimepicker({
 
 var path = "{{ route('autocomplete') }}";
 
+
+
     $('#code').select2({
         placeholder: 'Select an user',
         ajax: {
@@ -276,12 +278,15 @@ var path = "{{ route('autocomplete') }}";
           dataType: 'json',
           delay: 250,
           processResults: function (data) {
-            console.log(data);
             return {
               results:  $.map(data, function (item) {
+
+
                     return {
                         text: item.fname + '-' + item.lname,
-                        id: item.id
+                        id: item.id,
+                        base_salary: item.base_salary,
+                        base_salary_position: item.base_salary_position,
                     }
                 })
             };
@@ -289,6 +294,40 @@ var path = "{{ route('autocomplete') }}";
           cache: true
         }
       });
+
+    $(document.body).on("change","#code",function(){
+
+
+
+ $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                dataType: 'json',
+                type:'GET',
+                url: '/autocomplete/' + this.value,
+
+                success: function(datas){
+
+
+                    var base_salary = document.getElementById("base_salary").value = datas.base_salary;
+                    var base_salary_position = document.getElementById("base_salary_position").value = datas.base_salary_position;
+
+                    Calculate();
+    Calculatetotal();
+
+                }
+            })
+
+
+
+}
+);
+
+
+
 
 
 

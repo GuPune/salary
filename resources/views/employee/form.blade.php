@@ -46,6 +46,19 @@
                   </div>
                 </div>
 
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword" class="inputCity">ฐานเงินเดือน</label>
+                        <input type="text" class="form-control" id="base_salary" name="base_salary" placeholder="ฐานเงินเดือน" value="0" required oninput="validateNumber(event,'base_salary');" >
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword" class="inputCity">ค่าตำแหน่ง</label>
+                        <input type="text" class="form-control" id="base_salary_position" name="base_salary_position" placeholder="ค่าตำแหน่ง" value="0" required oninput="validateNumber(event,'base_salary_position');">
+                    </div>
+                  </div>
+
+
                 <button type="submit" class="btn btn-primary">บันทึก</button>
               </form>
           </div>
@@ -75,6 +88,14 @@ function validateAlphapass(e){
 }
 }
 
+
+function validateNumber(e,elementId){
+    var ss = e.target.selectionStart;
+    var se = e.target.selectionEnd;
+    var textInput = document.getElementById(elementId).value;
+    textInput = textInput.replace(/[^0-9]/g, "");
+    document.getElementById(elementId).value = textInput;
+}
 
     </script>
 

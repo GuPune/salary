@@ -21,5 +21,7 @@ class Employee extends Model
         'bank',
         'start',
         'end',
+        'base_salary',
+        'base_salary_position'
     ];
 }

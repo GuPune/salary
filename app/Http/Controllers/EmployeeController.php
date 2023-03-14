@@ -66,7 +66,9 @@ class EmployeeController extends Controller
             "code" =>  $request->code,
             "card" =>  $request->card,
             "credit" =>  $request->credit,
-            "bank" =>  $request->bank
+            "bank" =>  $request->bank,
+            "base_salary" =>  $request->base_salary,
+            "base_salary_position" =>  $request->base_salary_position
         ]);
 
 
@@ -165,12 +167,28 @@ $getedit = Employee::find($id);
         $data = [];
 
         if($request->filled('q')){
-            $data = Employee::select("fname", "id","lname","code")
+            $data = Employee::select("fname", "id","lname","code","base_salary","base_salary_position")
                         ->where('code', 'LIKE', '%'. $request->get('q'). '%')
                         ->get();
         }
 
         return response()->json($data);
     }
+
+    public function autocompleteid(Request $request,$id)
+    {
+
+        $data = [];
+
+        if($id){
+            $data = Employee::select("fname", "id","lname","code","base_salary","base_salary_position")
+                        ->where('id', $id)
+                        ->first();
+        }
+
+        return response()->json($data);
+    }
+
+
 
 }

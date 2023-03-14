@@ -42,6 +42,17 @@
                   </div>
                 </div>
 
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword" class="inputCity">ฐานเงินเดือน</label>
+                        <input type="text" class="form-control" id="base_salary" name="base_salary" placeholder="ฐานเงินเดือน" value="{{$employee->base_salary}}" required oninput="validateNumber(event,'base_salary');"  readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword" class="inputCity">ค่าตำแหน่ง</label>
+                        <input type="text" class="form-control" id="base_salary_position" name="base_salary_position" placeholder="ค่าตำแหน่ง" value="{{$employee->base_salary_position}}" required oninput="validateNumber(event,'base_salary_position');" readonly>
+                    </div>
+                  </div>
+
                 <button type="submit" class="btn btn-primary">บันทึก</button>
               </form>
           </div>
