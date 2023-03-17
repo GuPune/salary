@@ -143,24 +143,27 @@
         <table class="empDetail">
           <tr height="100px" style='background-color: #c2d69b'>
             <td colspan='4'>
-              <img height="90px" src='https://organisationmedia.toggleflow.com/demo/logo.png' /></td>
+              <img height="90px" src="{{ public_path('assets/img/logo.jpg') }}"/></td>
             <td colspan='4' class="companyName"> ห้างหุ้นส่วนจำกัด ขอนแก่นโลจิสติกส์</td>
           </tr>
           <tr>
             <th>
+
               รหัสพนักงาน
   </th>
             <td>
-                2409900020099
+                {{$code}}
   </td>
+
+
             <td>
 
             </td>
-            <th>
-                ชื่อ-นามสกุล
+            <th >
+                ชื่อ
   </th>
-            <td>
-             ปปปปปปปปปปปปป
+            <td colspan='4'>
+                {{$fname}} {{$lname}}
   </td>
             <td>
 
@@ -175,7 +178,7 @@
                 บัตร ปชช
   </th>
             <td>
-                2409900020099
+                {{$card}}
   </td>
             <td>
 
@@ -184,7 +187,7 @@
                 ธนาคาร
             </th>
             <td>
-                กสิกร
+                {{$bank}}
              </td>
             <td>
 

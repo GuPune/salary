@@ -17,7 +17,8 @@ class PDFController extends Controller
 
 
 $salary = Salary::where('id',$id)->first();
-\Log::info($salary);
+$emp = Employee::where('id',$salary->employee_id)->first();
+
 
         $data = [
             'title' => 'Welcome to ItSolutionStuff.com',
@@ -38,8 +39,14 @@ $salary = Salary::where('id',$id)->first();
             'total_deduction' => $salary->total_deduction,
             'total_money' => $salary->total_money,
             'day_slip' => $salary->day_slip,
-
+            'fname' => $emp->fname,
+            'lname' => $emp->lname,
+            'code' => $emp->code,
+            'credit' => $emp->credit,
+            'bank' => $emp->bank,
+            'card' => $emp->card,
         ];
+
 
 
         $pdf = PDF::loadView('pdf_view', $data);
